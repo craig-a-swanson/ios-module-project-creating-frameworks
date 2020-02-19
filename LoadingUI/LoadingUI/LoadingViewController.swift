@@ -18,10 +18,11 @@ public class LoadingViewController: UIViewController {
         animationView = IndeterminateLoadingView(frame: UIScreen.main.bounds)
         self.view.addSubview(animationView)
 
-        DispatchQueue.main.sync {
-            animationView.startAnimating()
+        DispatchQueue.main.async {
+            self.animationView.startAnimating()
             sleep(5)
-            animationView.stopAnimating()
+            self.animationView.stopAnimating()
+            
         }
         
     }
