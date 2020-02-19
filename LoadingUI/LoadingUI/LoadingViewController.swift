@@ -20,8 +20,7 @@ public class LoadingViewController: UIViewController {
 
         DispatchQueue.main.async {
             self.animationView.startAnimating()
-            sleep(5)
-            self.animationView.stopAnimating()
+//            self.animationView.stopAnimating()
             
         }
         

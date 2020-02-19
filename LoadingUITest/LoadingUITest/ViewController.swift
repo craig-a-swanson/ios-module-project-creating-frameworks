@@ -19,10 +19,9 @@ class ViewController: UIViewController {
 
     @IBAction func startAnimation(_ sender: UIButton) {
         self.present(loadingVC, animated: true) {
-            DispatchQueue.main.async {
-                self.dismiss(animated: true, completion: nil)
-                self.reloadInputViews()
-            }
+//            DispatchQueue.main.async {
+//                self.dismiss(animated: true, completion: nil)
+//            }
         }
     }
     
