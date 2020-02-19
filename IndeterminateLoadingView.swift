@@ -8,8 +8,9 @@
 
 import UIKit
 
-class IndeterminateLoadingView: UIView, CAAnimationDelegate {
+public class IndeterminateLoadingView: UIView, CAAnimationDelegate {
 
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -22,14 +23,14 @@ class IndeterminateLoadingView: UIView, CAAnimationDelegate {
         setupShapeLayer()
     }
     
-    func startAnimating() {
+    private func startAnimating() {
         guard !isAnimating else { return }
         defer { isAnimating = true }
     
         startAnimation()
     }
     
-    func stopAnimating() {
+    private func stopAnimating() {
         guard isAnimating else { return }
         
         shouldStopAnimationOnNextCycle = true
@@ -63,6 +64,8 @@ class IndeterminateLoadingView: UIView, CAAnimationDelegate {
     }
     
     private func startAnimation(for keyPath: String, timing: CAMediaTimingFunctionName) {
+        // mine
+        guard counter < iterations! else { stopAnimating(); return }
         let animation = CABasicAnimation(keyPath: keyPath)
         animation.fromValue = 0.0
         animation.toValue = 1.0
@@ -75,7 +78,7 @@ class IndeterminateLoadingView: UIView, CAAnimationDelegate {
     
     // MARK: - CAAnimationDelegate
     
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         guard !shouldStopAnimationOnNextCycle else {
             shouldStopAnimationOnNextCycle = false
             isAnimating = false
@@ -95,9 +98,19 @@ class IndeterminateLoadingView: UIView, CAAnimationDelegate {
             shapeLayer.removeAllAnimations()
             startAnimation(for: "strokeEnd", timing: .easeIn)
         }
+        // mine
+            counter += 1
     }
     
     // MARK: - Properties
+    
+    // mine
+    public var iterations: Int? {
+        didSet {
+            startAnimating()
+        }
+    }
+    private var counter = 0
     
     private(set) var isAnimating = false
 
