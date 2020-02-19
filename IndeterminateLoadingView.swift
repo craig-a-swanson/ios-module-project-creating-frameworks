@@ -23,14 +23,14 @@ public class IndeterminateLoadingView: UIView, CAAnimationDelegate {
         setupShapeLayer()
     }
     
-    public func startAnimating() {
+    private func startAnimating() {
         guard !isAnimating else { return }
         defer { isAnimating = true }
     
         startAnimation()
     }
     
-    public func stopAnimating() {
+    private func stopAnimating() {
         guard isAnimating else { return }
         
         shouldStopAnimationOnNextCycle = true
@@ -64,6 +64,7 @@ public class IndeterminateLoadingView: UIView, CAAnimationDelegate {
     }
     
     private func startAnimation(for keyPath: String, timing: CAMediaTimingFunctionName) {
+        guard counter < iterations! else { stopAnimating(); return }
         let animation = CABasicAnimation(keyPath: keyPath)
         animation.fromValue = 0.0
         animation.toValue = 1.0
@@ -96,9 +97,18 @@ public class IndeterminateLoadingView: UIView, CAAnimationDelegate {
             shapeLayer.removeAllAnimations()
             startAnimation(for: "strokeEnd", timing: .easeIn)
         }
+            counter += 1
     }
     
     // MARK: - Properties
+    
+    //mine
+    public var iterations: Int? {
+        didSet {
+            startAnimating()
+        }
+    }
+    private var counter = 0
     
     private(set) var isAnimating = false
 

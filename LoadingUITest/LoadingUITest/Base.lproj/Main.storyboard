@@ -15,23 +15,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kt-MG-Lwe">
-                                <rect key="frame" x="190" y="433" width="34" height="30"/>
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <action selector="startAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nXx-T9-NyT"/>
-                                    <segue destination="hVP-7i-22l" kind="presentation" identifier="LoadingUISegue" id="jbS-bJ-nAq"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Xim-Vf-wh8">
+                                <rect key="frame" x="76.5" y="392" width="261.5" height="112.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Number of Cycles to Display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOy-lr-b99">
+                                        <rect key="frame" x="0.0" y="0.0" width="261.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Iterations" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d63-Sk-UFu">
+                                        <rect key="frame" x="86" y="34.5" width="89" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kt-MG-Lwe">
+                                        <rect key="frame" x="113.5" y="82.5" width="34" height="30"/>
+                                        <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="startAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nXx-T9-NyT"/>
+                                            <segue destination="hVP-7i-22l" kind="presentation" identifier="LoadingUISegue" id="jbS-bJ-nAq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="1Kt-MG-Lwe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IGs-FI-DT8"/>
-                            <constraint firstItem="1Kt-MG-Lwe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Su1-T1-22a"/>
+                            <constraint firstItem="Xim-Vf-wh8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JrN-rv-6Ed"/>
+                            <constraint firstItem="Xim-Vf-wh8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cT8-qh-o8u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="VDC-1h-yib"/>
+                    <connections>
+                        <outlet property="iterationsTextField" destination="d63-Sk-UFu" id="H6f-em-mkx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
