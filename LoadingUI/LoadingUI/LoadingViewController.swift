@@ -38,3 +38,5 @@ public class LoadingViewController: UIViewController {
     }
     
 }
+
+// TODO:  There is a lot commented out, but in the end we just need to figure out how to make the spinning circle stop when we want it to.  Right now we can make it spin forever by commenting out the "stop" method, but whenever we add a sleep or a stop, the code seems to hit that before it even starts to animate.  Probably has something to do with the sync versus async, but changing it to sync makes it crash every time.  Need to figure that out.
