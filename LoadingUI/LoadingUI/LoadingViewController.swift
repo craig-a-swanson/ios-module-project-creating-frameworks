@@ -32,14 +32,15 @@ public class LoadingViewController: UIViewController {
     
     func updateValues() {
         guard let iterations = iterations else { return }
-        for _ in 0...iterations {
-            DispatchQueue.main.async {
+        DispatchQueue.main.async {
+            for _ in 0...iterations {
                 self.animationView.startAnimating()
             }
         }
         DispatchQueue.main.async {
             self.animationView.stopAnimating()
         }
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

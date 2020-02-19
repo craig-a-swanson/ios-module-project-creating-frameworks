@@ -18,11 +18,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func startAnimation(_ sender: UIButton) {
-        self.present(loadingVC, animated: true) {
-            DispatchQueue.main.async {
-                self.dismiss(animated: true, completion: nil)
-            }
-        }
+//        self.present(loadingVC, animated: true) {
+//            DispatchQueue.main.async {
+//                self.dismiss(animated: true, completion: nil)
+//            }
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
