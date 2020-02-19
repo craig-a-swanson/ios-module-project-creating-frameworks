@@ -22,24 +22,18 @@ public class LoadingViewController: UIViewController {
         
         animationView = IndeterminateLoadingView(frame: UIScreen.main.bounds)
         self.view.addSubview(animationView)
-//
-//        DispatchQueue.main.async {
-//            self.animationView.startAnimating()
-//            self.animationView.stopAnimating()
-//        }
+        self.animationView.stopAnimating()
+//         self.animationView.startAnimating()
         
     }
     
     func updateValues() {
         guard let iterations = iterations else { return }
         DispatchQueue.main.async {
-            for _ in 0...iterations {
-                self.animationView.startAnimating()
-            }
+            self.animationView.startAnimating()
+//            self.animationView.stopAnimating()
         }
-        DispatchQueue.main.async {
-            self.animationView.stopAnimating()
-        }
+        sleep(UInt32(iterations))
         self.dismiss(animated: true, completion: nil)
     }
     
