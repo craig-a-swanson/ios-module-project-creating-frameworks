@@ -20,6 +20,7 @@
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="startAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nXx-T9-NyT"/>
+                                    <segue destination="hVP-7i-22l" kind="presentation" identifier="LoadingUISegue" id="jbS-bJ-nAq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -35,6 +36,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="877" y="138"/>
+        </scene>
+        <!--Loading View Controller-->
+        <scene sceneID="BTQ-TY-iRW">
+            <objects>
+                <viewController storyboardIdentifier="LoadingViewController" id="hVP-7i-22l" customClass="LoadingViewController" customModule="LoadingUI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kpc-oL-uzW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="mBB-w2-mcI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jN3-cX-Gat" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1577" y="143"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Cd-NF-vYR">

@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     @IBAction func startAnimation(_ sender: UIButton) {
         self.present(loadingVC, animated: true) {
             DispatchQueue.main.async {
-                sleep(5)
                 self.dismiss(animated: true, completion: nil)
             }
         }
